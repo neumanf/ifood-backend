@@ -1,0 +1,46 @@
+{
+    "name": "ifood-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js",
+        "test": "jest -i --colors --verbose --detectOpenHandles",
+        "coverage": "jest -i --coverage",
+        "coverage:coveralls": "jest -i --coverage --coverageReporters=text-lcov | coveralls",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/neumanf/ifood-backend.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/neumanf/ifood-backend/issues"
+    },
+    "homepage": "https://github.com/neumanf/ifood-backend#readme",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "helmet": "^4.6.0",
+        "http-status": "^1.5.0",
+        "joi": "^17.4.2",
+        "mariadb": "^2.5.4",
+        "validator": "^13.6.0"
+    },
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-jest": "^24.4.0",
+        "jest": "^27.1.1",
+        "nodemon": "^2.0.12",
+        "prettier": "^2.4.0",
+        "supertest": "^6.1.6"
+    }
+}
