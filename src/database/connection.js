@@ -19,4 +19,15 @@ module.exports = {
                 });
         });
     },
+    end: function () {
+        return new Promise(function (resolve, reject) {
+            pool.end()
+                .then(function () {
+                    resolve();
+                })
+                .catch(function (error) {
+                    reject(error);
+                });
+        });
+    },
 };
