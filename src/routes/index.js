@@ -3,7 +3,7 @@ const userRoute = require("./user.route");
 const orderRoute = require("./order.route");
 const itemRoute = require("./item.route");
 const ratingRoute = require("./rating.route");
-const paymentRoute = require("./payment.route");
+const paymentMethodsRoute = require("./payment-method.route");
 
 const router = express.Router();
 
@@ -25,8 +25,8 @@ const defaultRoutes = [
         route: ratingRoute,
     },
     {
-        path: "/users/:userId/payments",
-        route: paymentRoute,
+        path: "/users/:userId/payment-methods",
+        route: paymentMethodsRoute,
     },
 ];
 
