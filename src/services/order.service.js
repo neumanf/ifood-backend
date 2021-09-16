@@ -5,9 +5,8 @@ const createOrder = async (order) => {
     try {
         conn = await pool.getConnection();
 
-        const query = "INSERT INTO pedidos VALUES (?,?,?,?,?,?,?);";
+        const query = "INSERT INTO pedidos (estado, c_cpf, nota, comentario, form_pagamento, e_cnpj) VALUES (?,?,?,?,?,?);";
         const createdOrder = await conn.query(query, [
-            order["id"],
             order["estado"],
             order["c_cpf"],
             order["nota"],

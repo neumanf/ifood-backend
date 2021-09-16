@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS pedidos (
-    id BIGINT PRIMARY KEY,
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
     estado VARCHAR(50) NOT NULL,
     c_cpf VARCHAR(14) NOT NULL,
     nota INT CHECK (nota >= 0 AND nota <= 10),

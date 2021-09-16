@@ -8,6 +8,7 @@ const createItem = async (req, res) => {
     //res.status(httpStatus.OK).send({ message: "Items", ok: true });
 
     const payload = createItemSchema.validate(req.body);
+    const { userId, orderId } = req.params;
 
     if (payload.error) {
         const errors = payload.error.details.map((el) => el.message);
@@ -16,7 +17,7 @@ const createItem = async (req, res) => {
     }
 
     try {
-        await itemService.createItem(payload.value);
+        await itemService.createItem({ c_cpf: userId, orderId, ...payload.value });
 
         return res.status(httpStatus.OK).send({ ok: true });
     } catch (error) {

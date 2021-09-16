@@ -1,11 +1,11 @@
 const httpStatus = require("http-status");
-const Joi = require("joi");
 
 const orderService = require("../services/order.service");
 const { createOrderSchema } = require("../validations/order.validation");
 
 const createOrder = async (req, res) => {
     const payload = createOrderSchema.validate(req.body);
+    const { userId } = req.params;
 
     if (payload.error) {
         const errors = payload.error.details.map((el) => el.message);
@@ -14,7 +14,7 @@ const createOrder = async (req, res) => {
     }
 
     try {
-        await orderService.createOrder(payload.value);
+        await orderService.createOrder({ c_cpf: userId, ...payload.value });
 
         return res.status(httpStatus.OK).send({ ok: true });
     } catch (error) {

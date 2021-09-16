@@ -2,7 +2,7 @@ const express = require("express");
 
 const itemController = require("../controllers/item.controller");
 
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 router.post("/", itemController.createItem);
 router.get("/", itemController.getItems);
