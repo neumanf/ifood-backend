@@ -4,7 +4,6 @@ const Joi = require("joi");
 const itemService = require("../services/item.service");
 const { createItemSchema } = require("../validations/item.validation");
 
-
 const createItem = async (req, res) => {
     //res.status(httpStatus.OK).send({ message: "Items", ok: true });
 
@@ -26,7 +25,7 @@ const createItem = async (req, res) => {
 };
 
 const getItems = async (req, res) => {
-   // res.status(httpStatus.OK).send({ message: "Items", ok: true });
+    // res.status(httpStatus.OK).send({ message: "Items", ok: true });
 
     try {
         const itens = await itemService.getAllItens();
@@ -35,7 +34,6 @@ const getItems = async (req, res) => {
     } catch (error) {
         return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error: ["Ocorreu um erro inesperado."] });
     }
-
 };
 
 const getItem = async (req, res) => {
@@ -52,7 +50,6 @@ const getItem = async (req, res) => {
     } catch (error) {
         return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error: ["Ocorreu um erro inesperado."] });
     }
-
 };
 
 module.exports = {
@@ -60,5 +57,3 @@ module.exports = {
     getItems,
     getItem,
 };
-
-

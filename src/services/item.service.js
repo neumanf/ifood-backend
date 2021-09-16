@@ -6,15 +6,9 @@ const createItem = async (item) => {
         conn = await pool.getConnection();
 
         const query = "INSERT INTO item VALUES (?, ?, ?, ?,)";
-        const createdItem = await conn.query(query, [
-            user["id"],
-            user["categoria"],
-            user["nome"],
-            user["preco"],
-            
-        ]);
+        const createdItem = await conn.query(query, [user["id"], user["categoria"], user["nome"], user["preco"]]);
 
-       /* if (user.idade) {
+        /* if (user.idade) {
             const query = "INSERT INTO cliente VALUES (?, ?)";
             await conn.query(query, [user["cpf_cnpj"], user["idade"]]);
         } else if (user.tipo) {
@@ -36,8 +30,7 @@ const getAllItens = async () => {
     try {
         conn = await pool.getConnection();
 
-        const query =
-            "SELECT item.id, item.categoria, item.nome, item.preco FROM item ;";
+        const query = "SELECT item.id, item.categoria, item.nome, item.preco FROM item ;";
         const itens = await conn.query(query);
 
         return itens;
@@ -54,8 +47,7 @@ const getItemById = async (id) => {
     try {
         conn = await pool.getConnection();
 
-        const query =
-            "SELECT item.id, item.categoria, item.nome, item.preco FROM item \
+        const query = "SELECT item.id, item.categoria, item.nome, item.preco FROM item \
             WHERE id =(?);";
 
         const item = await conn.query(query, [id]);
@@ -73,5 +65,4 @@ module.exports = {
     createItem,
     getAllItens,
     getItemById,
-    
 };
