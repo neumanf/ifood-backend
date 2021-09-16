@@ -6,15 +6,9 @@ const createItem = async (item) => {
         conn = await pool.getConnection();
 
         const query = "INSERT INTO item VALUES (?, ?, ?, ?,)";
-        const createdItem = await conn.query(query, [user["id"], user["categoria"], user["nome"], user["preco"]]);
+        const createdItem = await conn.query(query, [item["id"], item["categoria"], item["nome"], item["preco"]]);
 
-        /* if (user.idade) {
-            const query = "INSERT INTO cliente VALUES (?, ?)";
-            await conn.query(query, [user["cpf_cnpj"], user["idade"]]);
-        } else if (user.tipo) {
-            const query = "INSERT INTO estabelecimento VALUES (?, ?)";
-            await conn.query(query, [user["cpf_cnpj"], user["tipo"]]);
-        }*/
+       
 
         return createdItem;
     } catch (err) {
