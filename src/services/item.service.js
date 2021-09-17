@@ -26,13 +26,14 @@ const createItem = async (item) => {
     }
 };
 
-const getAllItens = async () => {
+const getAllItens = async (orderId) => {
     let conn;
     try {
         conn = await pool.getConnection();
 
-        const query = "SELECT item.id, item.categoria, item.nome, item.preco FROM item ;";
-        const itens = await conn.query(query);
+        const query =
+            "SELECT item.id, item.categoria, item.nome, item.preco, contem.p_id FROM item, contem WHERE contem.p_id=(?);";
+        const itens = await conn.query(query, [orderId]);
 
         return itens;
     } catch (err) {

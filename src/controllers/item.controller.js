@@ -29,7 +29,7 @@ const getItems = async (req, res) => {
     // res.status(httpStatus.OK).send({ message: "Items", ok: true });
 
     try {
-        const itens = await itemService.getAllItens();
+        const itens = await itemService.getAllItens(req.params.orderId);
 
         return res.status(httpStatus.OK).send(itens);
     } catch (error) {
@@ -41,12 +41,12 @@ const getItem = async (req, res) => {
     //res.status(httpStatus.OK).send({ message: "Items", ok: true });
 
     try {
-        const item = await itemService.getItemById(req.params.userId);
+        const item = await itemService.getItemById(req.params.itemId);
 
         if (item && item[0]) {
             return res.status(httpStatus.OK).send(item[0]);
         } else {
-            return res.status(httpStatus.NOT_FOUND).send({ error: "Usuário não encontrado." });
+            return res.status(httpStatus.NOT_FOUND).send({ error: "Item não encontrado." });
         }
     } catch (error) {
         return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error: ["Ocorreu um erro inesperado."] });
