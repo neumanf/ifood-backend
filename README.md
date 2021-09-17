@@ -290,11 +290,8 @@
 
 ```json
 {
-    "categoria": "bedida",
-    "nome": "coca cola",
-    "preco": 5,
     "e_cnpj": "00000000000000",
-    "quantidade": 1
+    "nota": 5
 }
 ```
 
